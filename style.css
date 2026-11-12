@@ -520,12 +520,23 @@ h1,h2,h3 {
     background-color: var(--paper-light);
     border-top: 1px solid rgba(89, 55, 42, 0.2);
 }
-.footer-logo,
-.footer-navigation,
-.footer-contacts,
-.footer-documents {
-    position: relative;
-    z-index: 2;
+.footer::before,
+.footer::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 100%;
+    background: var(--red-dark);
+    pointer-events: none;
+    z-index: 3;
+}
+footer::before{
+    bottom: 18px;
+    height: 5px;
+}
+footer::after{
+    bottom: 0;
+    height: 15px;
 }
 .footer-logo .logo-text {
     font-size: 22px;
@@ -556,18 +567,12 @@ h1,h2,h3 {
 .footer-documents a:hover {
     color: var(--red);
 }
-.footer-decoration {
+.footer-image{
     position: absolute;
     z-index: 1;
-    right: 0;
-    bottom: 0;
-    width: 22%;
-    height: 55%;
-    background-image: url("images/footer-decoration.jpg");
-    background-position: right bottom;
-    background-size: contain;
-    background-repeat: no-repeat;
-    pointer-events: none;
+    bottom: 10px;
+    right: 8px;
+    max-height: 120px;
 }
 .modal {
     position: fixed;
@@ -670,9 +675,16 @@ h1,h2,h3 {
     line-height: 1.4;
 }
 .search-message {
-    margin-top: 8px;
+    width: min(100%, 330px);
+    box-sizing: border-box;
+    margin-top: 10px;
+    padding: 9px 12px;
+    border-left: 3px solid var(--red);
+    background: rgba(249, 235, 210, 0.9);
+    color: var(--brown);
     font-size: 12px;
     font-weight: 700;
+    line-height: 1.45;
 }
 @media (max-width: 1050px) {
     .header {
@@ -947,6 +959,9 @@ h1,h2,h3 {
         gap: 8px;
         font-size: 10px;
     }
+    .footer-image{
+        display: none;
+    }
     .modal-content {
         padding: 27px 20px;
     }
@@ -994,5 +1009,4 @@ h1,h2,h3 {
         scroll-behavior: auto !important;
         transition-duration: 0.01ms !important;
     }
-
 }

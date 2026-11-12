@@ -141,14 +141,25 @@ document.addEventListener("keydown", event => {
 function showFormMessage(form, message) {
     removeFormMessage(form);
     const messageElement = document.createElement("div");
-    messageElement.className = "form-message";
+    messageElement.className = form.id === "search-form"
+        ? "form-message search-message"
+        : "form-message";
     messageElement.textContent = message;
     messageElement.setAttribute("role", "status");
-    form.appendChild(messageElement);
+    if (form.id === "search-form") {
+        form.insertAdjacentElement("afterend", messageElement);
+    } else {
+        form.appendChild(messageElement);
+    }
 }
 function removeFormMessage(form) {
-    const existingMessage = form.querySelector(".form-message");
-    if (existingMessage) {
+    const existingMessage = form.id === "search-form"
+        ? form.nextElementSibling
+        : form.querySelector(".form-message");
+    if (
+        existingMessage &&
+        existingMessage.classList.contains("form-message")
+    ) {
         existingMessage.remove();
     }
 }
