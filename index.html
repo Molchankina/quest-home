@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="theme-color" content="#E9D6B5">
+        <meta name="description" content="Квест Хоум — подарочные и авторские квесты в атмосфере СССР.">
+        <title>Квест Хоум — Квесты с историей</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Science+Gothic:wght@100..900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="style.css">
+        <script src="script.js" defer></script>
+    </head>
+    <body>
+        <header class="header" id="header">
+            <a href="#home" class="logo">
+                <span class="logo-star">★</span>
+                <span class="logo-text">КВЕСТ<br>ХОУМ</span>
+            </a>
+            <nav class="navigation" id="navigation">
+                <a href="#gifts">Подарки</a>
+                <a href="#author-quests">Квесты на заказ</a>
+                <a href="#about">О нас</a>
+                <a href="#contacts">Контакты</a>
+            </nav>
+            <div class="header-actions">
+                <button class="account-button" data-modal="auth-modal">
+                    <span class="account-icon">♙</span>
+                    <span>Войти<br>/ Регистрация</span>
+                </button>
+                <button class="cart-button" id="cart-button">
+                    <span class="cart-icon" aria-hidden="true"></span>
+                    <span>Корзина</span>
+                </button>
+            </div>
+            <button class="mobile-menu-button"
+                    id="mobile-menu-button"
+                    aria-label="Открыть меню"
+                    aria-expanded="false">
+                ☰
+            </button>
+        </header>
+        <main>
+            <section class="hero" id="home">
+                <div class="hero-background"></div>
+                <div class="hero-content">
+                    <h1>
+                        КВЕСТ<br>
+                        ХОУМ
+                    </h1>
+                    <p class="hero-subtitle">
+                        Подарите эмоции<br>
+                        в духе СССР!
+                    </p>
+                </div>
+            </section>
+            <section class="directions" id="gifts">
+                <div class="gift-search">
+                    <div class="gift-photo"></div>
+                    <div class="gift-content">
+                        <h2>ПОИСК<br>ПОДАРКОВ</h2>
+                        <p>
+                            Найдите готовый квест
+                            для особенного подарка
+                        </p>
+                        <form class="search-form" id="search-form">
+                            <input
+                                type="search"
+                                id="gift-search-input"
+                                placeholder="Например: на день рождения"
+                                aria-label="Поиск подарков"
+                            >
+                            <button type="submit" aria-label="Найти">
+                                Поиск
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                <div class="author-direction" id="author-quests">
+                    <div class="author-direction-content">
+                        <h2>АВТОРСКИЕ<br>КВЕСТЫ</h2>
+                        <p>
+                            Уникальные квесты в стиле СССР
+                        </p>
+                        <a href="#custom-quest" class="button button-author">
+                            Купить квест
+                        </a>
+                    </div>
+                </div>
+            </section>
+            <section class="custom-quest" id="custom-quest">
+                <div class="custom-quest-content">
+                    <h2>
+                        АВТОРСКИЕ КВЕСТЫ<br>
+                        НА ЗАКАЗ
+                    </h2>
+                    <p>
+                        Любая тематика, любой повод.<br>
+                        Создадим квест, который запомнится!
+                    </p>
+                    <a href="#contacts" class="button button-custom">
+                        Оставить заявку
+                        <span>→</span>
+                    </a>
+                </div>
+                <div class="custom-toy"></div>
+                <div class="custom-decoration"></div>
+            </section>
+        </main>
+        <footer class="footer" id="contacts">
+            <div class="footer-logo">
+                <a href="#home" class="logo">
+                    <span class="logo-star">★</span>
+                    <span class="logo-text">КВЕСТ<br>ХОУМ</span>
+                </a>
+                <p>Квесты с историей</p>
+            </div>
+            <nav class="footer-navigation">
+                <a href="#gifts">Подарки</a>
+                <a href="#author-quests">Квесты на заказ</a>
+                <a href="#about">О нас</a>
+                <a href="#contacts">Контакты</a>
+            </nav>
+            <div class="footer-contacts">
+                <a href="tel:+74951234567">
+                    +7 (495) 123-45-67
+                </a>
+                <a href="mailto:hello@questhom.ru">
+                    hello@questhom.ru
+                </a>
+            </div>
+            <div class="footer-documents">
+                <a href="#">Политика конфиденциальности</a>
+                <a href="#">Пользовательское соглашение</a>
+            </div>
+            <div class="footer-decoration"></div>
+        </footer>
+        <div class="modal" id="auth-modal" aria-hidden="true">
+            <div class="modal-content">
+                <button class="modal-close" aria-label="Закрыть">
+                    ×
+                </button>
+                <h2>ВХОД</h2>
+                <form id="auth-form">
+                    <label for="auth-email">Электронная почта</label>
+                    <input type="email" id="auth-email" required>
+                    <label for="auth-password">Пароль</label>
+                    <input type="password" id="auth-password" required>
+                    <button type="submit" class="button">
+                        Войти
+                    </button>
+                </form>
+                <button class="registration-switch" id="registration-switch">
+                    Регистрация
+                </button>
+            </div>
+        </div>
+        <div class="cart-panel" id="cart-panel" aria-hidden="true">
+            <button class="cart-close" id="cart-close">
+                ×
+            </button>
+            <h2>КОРЗИНА</h2>
+            <div class="cart-content">
+                Пока здесь ничего нет.
+            </div>
+        </div>
+    </body>
+</html>
