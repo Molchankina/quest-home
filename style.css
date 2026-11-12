@@ -1,25 +1,12 @@
-.science-gothic {
-  font-family: "Science Gothic", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 400 900;
-  font-style: normal;
-  font-variation-settings:
-    "slnt" 0,
-    "wdth" 100,
-    "CTRS" 0;
-}
 @font-face {
     font-family: "QuestText";
     src: url("fonts/quest-text.woff2") format("woff2");
     font-weight: 400 700;
     font-display: swap;
 }
-/* =====================================================
-   02. ПЕРЕМЕННЫЕ
-===================================================== */
 :root {
-    --paper: #E9D6B5;
-    --paper-light: #F5E8CF;
+    --paper: #e9cfa2;
+    --paper-light: #f6e4c1;
     --paper-dark: #DCC49C;
     --red: #B93622;
     --red-dark: #922C20;
@@ -31,9 +18,6 @@
     --text-font: "QuestText", Georgia, serif;
     --border-color: #9E5435;
 }
-/* =====================================================
-   03. ОБЩИЕ СТИЛИ
-===================================================== */
 * {
     box-sizing: border-box;
 }
@@ -71,7 +55,10 @@ h1,h2,h3,p {
 }
 h1,h2,h3 {
     font-family: var(--heading-font);
-    font-weight: 900;
+    font-weight: 800;
+    transform: scaleY(1.4) scaleX(0.85);
+    padding-bottom: 12px;
+    margin-left: -38px;
 }
 ::selection {
     color: var(--paper-light);
@@ -154,7 +141,21 @@ h1,h2,h3 {
     text-align: left;
 }
 .account-icon {
-    font-size: 27px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 29px;
+    height: 29px;
+    color: var(--red);
+}
+.account-icon svg {
+    width: 100%;
+    height: 100%;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
 }
 .cart-icon {
     position: relative;
@@ -195,8 +196,7 @@ h1,h2,h3 {
 .hero {
     position: relative;
     isolation: isolate;
-    min-height: 355px;
-    height: clamp(355px, 45vw, 600px);
+    height: clamp(450px, 50vw, 700px);
     overflow: hidden;
     background-color: var(--red);
     color: var(--paper-light);
@@ -218,25 +218,27 @@ h1,h2,h3 {
     text-align: center;
     margin: auto;
     margin-top: 10vw;
+    transform: rotate(-5deg);
 }
 .hero h1 {
-    margin-bottom: 8px;
+    margin-bottom: 20px;
     color: var(--paper-light);
-    font-size: clamp(65px, 9vw, 132px);
+    font-size: clamp(75px, 10vw, 150px);
     line-height: 0.83;
     letter-spacing: -5px;
     text-shadow: 3px 3px 0 rgba(94, 29, 19, 0.2);
+    font-weight: 800;
+
 }
 .hero-subtitle {
     display: inline-block;
     margin-top: 12px;
     color: var(--paper-light);
     font-family: var(--heading-font);
-    font-size: clamp(19px, 2.4vw, 32px);
+    font-size: clamp(30px, 4vw, 50px);
     font-style: italic;
     font-weight: 800;
     line-height: 1.1;
-    transform: rotate(-5deg);
 }
 .directions {
     display: grid;
@@ -253,16 +255,17 @@ h1,h2,h3 {
     padding: 35px 7%;
     overflow: hidden;
     background-color: var(--paper-light);
+    isolation: isolate;
 }
 .gift-photo {
     position: absolute;
     inset: 0;
-    z-index: -2;
-    background-color: var(--red);
-    background-image: url("images/gift-photo.jpg");
+    z-index: -1;
+    background-image: url("images/gift-background.jpg");
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
+    pointer-events: none;
 }
 .gift-content {
     position: relative;
@@ -293,6 +296,7 @@ h1,h2,h3 {
     min-height: 39px;
     border: 1px solid var(--border-color);
     background: #F9EBD2;
+    border-radius: 5px;
 }
 .search-form input {
     flex: 1;
@@ -315,6 +319,7 @@ h1,h2,h3 {
     color: var(--paper-light);
     font-size: 0;
     position: relative;
+    border-radius: 5px;
 }
 .search-form button::before {
     content: "";
@@ -345,6 +350,18 @@ h1,h2,h3 {
     padding: 35px 7%;
     overflow: hidden;
     background-color: #E8D5B4;
+    isolation: isolate;
+}
+.author-direction::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background-image: url("images/author-background.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    pointer-events: none;
 }
 .author-direction-content {
     position: relative;
@@ -359,10 +376,11 @@ h1,h2,h3 {
     min-height: 42px;
     padding: 10px 20px;
     border: 1px solid var(--red-dark);
+    border-radius: 5px;
     background-color: var(--red);
     color: var(--paper-light);
     font-family: var(--heading-font);
-    font-size: 14px;
+    font-size: 20px;
     font-weight: 800;
     transition:
         background-color 0.2s ease,
@@ -370,20 +388,17 @@ h1,h2,h3 {
 }
 .button:hover {
     background-color: var(--red-dark);
-    transform: translateY(-2px);
-}
-.button-author {
-    transform: rotate(-2deg);
+    transform: translateY(-1.5px);
 }
 .button-author:hover {
-    transform: rotate(-2deg) translateY(-2px);
+    transform: translateY(-2px);
 }
 .custom-quest {
     position: relative;
     isolation: isolate;
     display: flex;
     align-items: center;
-    min-height: 400px;
+    min-height: 500px;
     padding: 35px 9%;
     overflow: hidden;
     background-color: var(--red-dark);
@@ -404,18 +419,19 @@ h1,h2,h3 {
     position: absolute;
     inset: 0;
     z-index: -1;
-    background: rgba(70, 20, 12, 0.12);
+    pointer-events: none;
 }
-
 .custom-quest-content {
     position: relative;
     z-index: 2;
-    max-width: 800px;
+    max-width: 1000px;
+    transform: rotate(-2deg);
+    text-align: center;
 }
 .custom-quest h2 {
     margin-bottom: 12px;
     color: var(--paper-light);
-    font-size: clamp(25px, 4vw, 50px);
+    font-size: clamp(40px, 4vw, 60px);
     line-height: 0.9;
     letter-spacing: -1px;
     text-shadow: 2px 2px 0 rgba(65, 19, 12, 0.3);
@@ -431,37 +447,12 @@ h1,h2,h3 {
     background: var(--paper-light);
     border-color: var(--paper-light);
     color: var(--red);
-    transform: rotate(-2deg);
+    transform: rotate(-1.5deg);
 }
 .button-custom:hover {
     background: #FFF6E6;
     color: var(--red-dark);
     transform: rotate(-2deg) translateY(-2px);
-}
-.custom-toy {
-    position: absolute;
-    z-index: 1;
-    right: 4%;
-    bottom: 0;
-    width: 28%;
-    height: 95%;
-    background-image: url("images/custom-toy.jpg");
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center bottom;
-}
-.custom-decoration {
-    position: absolute;
-    z-index: 1;
-    right: 1%;
-    bottom: 0;
-    width: 20%;
-    height: 90%;
-    background-image: url("images/custom-decoration.jpg");
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center bottom;
-    pointer-events: none;
 }
 .footer {
     position: relative;
@@ -548,7 +539,7 @@ h1,h2,h3 {
 }
 .modal-content h2 {
     color: var(--red);
-    font-size: 34px;
+    font-size: 25px;
 }
 .modal-close,
 .cart-close {
@@ -648,6 +639,9 @@ h1,h2,h3 {
         width: 70%;
         margin-left: 14%;
     }
+    .directions{
+        min-height: 250px;
+    }
     .gift-search,
     .author-direction {
         padding-left: 5%;
@@ -656,12 +650,15 @@ h1,h2,h3 {
     .gift-content {
         width: 85%;
     }
+    .custom-quest{
+        min-height: 350px;
+    }
     .footer {
         grid-template-columns: repeat(2, 1fr);
         row-gap: 25px;
     }
 }
-@media (max-width: 700px) {
+@media (max-width: 800px) {
     html {
         scroll-padding-top: 70px;
     }
@@ -739,7 +736,6 @@ h1,h2,h3 {
     .hero-content {
         width: 95%;
         margin-left: 0;
-        padding-top: 45px;
     }
     .hero h1 {
         font-size: clamp(53px, 15vw, 75px);
@@ -845,8 +841,8 @@ h1,h2,h3 {
         font-size: clamp(22px, 6vw, 30px);
     }
     .custom-quest p {
-        max-width: 250px;
-        font-size: 12px;
+        max-width: 300px;
+        font-size: 15px;
     }
     .custom-toy {
         right: -2%;
@@ -859,7 +855,6 @@ h1,h2,h3 {
         height: 70%;
     }
     .footer {
-        grid-template-columns: 1fr 1fr;
         gap: 22px 10px;
         padding: 25px 18px 45px;
     }
@@ -883,12 +878,9 @@ h1,h2,h3 {
         font-size: 10px;
     }
     .footer-documents {
-        grid-column: 1 / -1;
-    }
-    .footer-decoration {
-        width: 35%;
-        height: 30%;
-        opacity: 0.8;
+        padding-left: 10px;
+        gap: 8px;
+        font-size: 10px;
     }
     .modal-content {
         padding: 27px 20px;
@@ -925,6 +917,7 @@ h1,h2,h3 {
         padding-right: 16px;
     }
     .footer {
+        grid-template-columns: 1fr 1fr;
         padding-left: 12px;
         padding-right: 12px;
     }

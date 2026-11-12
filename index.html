@@ -21,12 +21,16 @@
             <nav class="navigation" id="navigation">
                 <a href="#gifts">Подарки</a>
                 <a href="#author-quests">Квесты на заказ</a>
-                <a href="#about">О нас</a>
                 <a href="#contacts">Контакты</a>
             </nav>
             <div class="header-actions">
                 <button class="account-button" data-modal="auth-modal">
-                    <span class="account-icon">♙</span>
+                    <span class="account-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24">
+                            <circle cx="12" cy="8" r="4" />
+                            <path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7" />
+                        </svg>
+                    </span>
                     <span>Войти<br>/ Регистрация</span>
                 </button>
                 <button class="cart-button" id="cart-button">
@@ -81,7 +85,7 @@
                     <div class="author-direction-content">
                         <h2>АВТОРСКИЕ<br>КВЕСТЫ</h2>
                         <p>
-                            Уникальные квесты в стиле СССР
+                            Уникальные квесты в духе СССР
                         </p>
                         <a href="#custom-quest" class="button button-author">
                             Купить квест
@@ -101,11 +105,8 @@
                     </p>
                     <a href="#contacts" class="button button-custom">
                         Оставить заявку
-                        <span>→</span>
                     </a>
                 </div>
-                <div class="custom-toy"></div>
-                <div class="custom-decoration"></div>
             </section>
         </main>
         <footer class="footer" id="contacts">
@@ -119,7 +120,6 @@
             <nav class="footer-navigation">
                 <a href="#gifts">Подарки</a>
                 <a href="#author-quests">Квесты на заказ</a>
-                <a href="#about">О нас</a>
                 <a href="#contacts">Контакты</a>
             </nav>
             <div class="footer-contacts">
@@ -134,7 +134,6 @@
                 <a href="#">Политика конфиденциальности</a>
                 <a href="#">Пользовательское соглашение</a>
             </div>
-            <div class="footer-decoration"></div>
         </footer>
         <div class="modal" id="auth-modal" aria-hidden="true">
             <div class="modal-content">
